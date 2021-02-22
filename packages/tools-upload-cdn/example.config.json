@@ -1,0 +1,11 @@
+{
+  "cos": {
+    "SecretId": "",
+    "SecretKey": "",
+    "Bucket": {
+      "app": "",
+      "market": ""
+    },
+    "Region": ""
+  }
+}

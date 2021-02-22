@@ -1,0 +1,53 @@
+{
+  "NODE_ENV": "development",
+  "RUNTIME_ENV": "RUNTIME_ENV",
+  "host": "http://localhost",
+  "port": 4000,
+  "session": {
+    "secret": "session.id",
+    "saveUninitialized": false,
+    "resave": false
+  },
+  "redis": {
+    "app": {
+      "server": {
+        "host": "127.0.0.1",
+        "name": "app",
+        "port": 6379,
+        "password": "GTlwKUqc3ftkmHMf"
+      }
+    },
+    "session": {
+      "server": {
+        "host": "127.0.0.1",
+        "name": "session",
+        "port": 6379,
+        "password": "GTlwKUqc3ftkmHMf"
+      }
+    }
+  },
+  "mongo": {
+    "host": "118.24.146.135",
+    "port": 27017,
+    "user": "user",
+    "password": "7Ih15DBAoPLk6kQV"
+  },
+  "wechat": {
+    "AppId": "wxe6eadfba29db766f",
+    "AppSecret": "4a98a11e54635e372ffafd17e366f8c9"
+  },
+  "cos": {
+    "SecretId": "AKIDWpSq5kfMK2WmmwyVv5f06gQwxiQtJ3kC",
+    "SecretKey": "iHbliQt636uSpwoQmtra2tXjhOr8CzKQ",
+    "Bucket": {
+        "app": "app-1258538316",
+        "market": "market-1258538316"
+    },
+    "Region": "ap-chengdu"
+  },
+  "allowOrigins": [
+    "http://localhost:3000",
+    "http://localhost:3001"
+  ],
+  "CDN": "http://app-1258538316.cos.ap-chengdu.myqcloud.com"
+}

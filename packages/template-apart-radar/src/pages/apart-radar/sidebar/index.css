@@ -1,0 +1,17 @@
+.side {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: auto;
+    height: 100vh;
+    overflow: auto;
+    background-color: white;
+    z-index: 1001;
+    
+}
+
+.ant-checkbox-group label {
+    display: block;
+    /* display: flex;
+    flex-direction: row; */
+}

@@ -1,0 +1,28 @@
+{
+  "name": "ww-middleware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/connect-redis": "0.0.11",
+    "@types/express": "^4.17.1",
+    "@types/express-session": "1.15.15",
+    "@types/ioredis": "^4.0.18",
+    "connect-redis": "^4.0.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "ioredis": "^4.14.1",
+    "redis": "^2.8.0",
+    "ww-config": "^1.0.0",
+    "ww-utils-server": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.2"
+  }
+}
