@@ -27,6 +27,7 @@
     "ww-tools-upload-cdn": "^1.0.0"
   },
   "devDependencies": {
-    "@types/react": "^17.0.2"
+    "@types/react": "^17.0.2",
+    "ww-tools-upload-cdn": "^1.0.0"
   }
 }

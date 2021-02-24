@@ -1,15 +1,19 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "init": "npm run clean && npm run bootstrap",
-    "clean": "rm -rf node_modules && lerna clean -y",
-    "bootstrap": "lerna bootstrap --hoist",
+    "start": "node scripts/start.js",
     "dev-server": "cd packages/server && npm run dev",
     "dev-static": "cd packages/template-apart-radar && npm run dev",
-    "dev-build": "cd packages/build && npm run dev",
     "build-static": "cd packages/template-apart-radar && npm run build",
     "upload": "cd packages/tools-upload-cdn && npm run upload"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "inquirer": "^7.3.3",
+    "shelljs": "^0.8.4"
   }
 }

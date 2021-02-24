@@ -54,6 +54,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/react": "^17.0.2"
+    "@types/react": "^17.0.2",
+    "webpack-bundle-analyzer": "^4.4.0"
   }
 }

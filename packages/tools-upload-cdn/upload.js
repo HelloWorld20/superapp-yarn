@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const chalk = require('chalk');
 const COS = require('cos-nodejs-sdk-v5');
-
 
 class Uploader {
     constructor(folderPath, configPath) {
@@ -30,7 +30,7 @@ class Uploader {
                 if (err) {
                     reject(err);
                 } else {
-                    console.log(data.Location)
+                    console.log(chalk.red(`上传成功：${data.Location}`))
                     resolve(data.Location);
                 }
             });

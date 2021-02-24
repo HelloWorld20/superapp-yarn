@@ -6,5 +6,6 @@ module.exports = function(env, configs) {
     require('./copy-plugin')(env, configs),
     ...require('./html-plugin')(env, configs),
     ...require('./hot-plugin')(env, configs),
+    ...require('./analyzer-plugin')(env, configs)
   ];
 };
