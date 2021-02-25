@@ -17,12 +17,6 @@ module.exports = async () => {
           value: 'production'
         }
       ]
-    },
-    {
-      type: 'confirm',
-      name: 'analasy',
-      message: '是否用boundleAnalasyPlugin分析代码',
-      default: false
     }
   ])
   res = { ...answer };
@@ -30,12 +24,18 @@ module.exports = async () => {
     const answer = await inquirer.prompt([
       {
         type: 'confirm',
+        name: 'analasy',
+        message: '是否用boundleAnalasyPlugin分析代码',
+        default: false
+      },
+      {
+        type: 'confirm',
         name: 'upload',
         message: '是否上传到cdn',
         default: false
       }
     ])
-    res = {...res, ...answer };
+    res = { ...res, ...answer };
   }
 
   return res;

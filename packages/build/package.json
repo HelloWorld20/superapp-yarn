@@ -1,7 +1,7 @@
 {
   "name": "ww-build",
   "version": "1.0.0",
-  "description": "",
+  "description": "React的webpack打包工具",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config "

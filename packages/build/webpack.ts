@@ -1,10 +1,27 @@
+const fs = require('fs');
 const TerserPlugin = require("terser-webpack-plugin");
 
-module.exports = rawConfigs => {
+function loadJSON(filename) {
+  try {
+    const content = fs.readFileSync(filename, "utf8");
+    return JSON.parse(content);
+  } catch (error) {
+    console.warn('loadJson错误', error)
+    return {};
+  }
+}
+
+module.exports = (rawConfigs: WebpackConfig, staticConfigsPath: string) => {
   const env = process.env.NODE_ENV;
   if (!env) throw new Error("找不到环境变量");
 
-  const configs = {
+  let staticConfigs: Record<string, any> = {};
+  if (staticConfigsPath) {
+    staticConfigs = loadJSON(staticConfigsPath)
+  }
+
+  const configs: Record<string, any> = {
+    ...staticConfigs,
     entry: rawConfigs.entry,
     distDir: rawConfigs.distDir,
     srcDir: rawConfigs.srcDir,
@@ -16,7 +33,7 @@ module.exports = rawConfigs => {
       rawConfigs
     ),
     loaders: rawConfigs.loaders || [],
-    plugins: rawConfigs.plugins || []
+    plugins: rawConfigs.plugins || [],
   };
 
   const isDev = env === "development";
@@ -25,7 +42,8 @@ module.exports = rawConfigs => {
     entry: configs.entry,
     output: {
       path: configs.distDir,
-
+      // 资源发布的路径
+      publicPath: isDev ? undefined : `${configs.cdnPrefix || ''}`,
       filename: `[name].[hash:10].js`
     },
     resolve: {

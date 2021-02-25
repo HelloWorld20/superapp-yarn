@@ -6,7 +6,6 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import App from "./App";
 import ApartRadar from "./pages/apart-radar";
 
 export const routeList = {

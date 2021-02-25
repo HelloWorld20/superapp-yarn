@@ -1,7 +1,20 @@
 import React, { useRef, useEffect, useCallback } from "react";
-import { EChartOption, ECharts, init } from "echarts";
+
+import * as echarts from "echarts/core";
+
+import { RadarChart } from "echarts/charts";
+import {
+  RadarComponentOption,
+  LegendComponent,
+  TooltipComponent,
+} from "echarts/components";
+import { CanvasRenderer } from "echarts/renderers";
+
+const { init } = echarts;
 
 import "./index.css";
+
+type ECOption = echarts.ComposeOption<RadarComponentOption>;
 
 interface IProps {
   datas: any[];
@@ -9,10 +22,20 @@ interface IProps {
 
 export default ({ datas }: IProps) => {
   const chartEl = useRef<HTMLDivElement | null>(null);
-  const instance = useRef<ECharts | null>(null);
+  const instance = useRef<echarts.ECharts | null>(null);
+
+  useEffect(() => {
+    // 注册必须的组件
+    echarts.use([
+      RadarChart,
+      LegendComponent,
+      TooltipComponent,
+      CanvasRenderer,
+    ]);
+  }, []);
 
   const getOption = useCallback(
-    (datas: any[]): EChartOption => {
+    (datas: any[]): ECOption => {
       // const data
       // const indicator: any[] = [];
       const series = datas.map((data) => {
@@ -34,15 +57,15 @@ export default ({ datas }: IProps) => {
         },
         radar: {
           indicator: [
-            { name: "交通", max: 100 },
-            { name: "环境", max: 100 },
-            { name: "学区", max: 100 },
-            { name: "质量", max: 100 },
-            { name: "房龄", max: 100 },
-            { name: "户型", max: 100 },
-            { name: "升值空间", max: 100 },
-            { name: "配套设施", max: 100 },
-            { name: "性价比", max: 100 },
+            { text: "交通", max: 100 },
+            { text: "环境", max: 100 },
+            { text: "学区", max: 100 },
+            { text: "质量", max: 100 },
+            { text: "房龄", max: 100 },
+            { text: "户型", max: 100 },
+            { text: "升值空间", max: 100 },
+            { text: "配套设施", max: 100 },
+            { text: "性价比", max: 100 },
           ],
         },
         series: [

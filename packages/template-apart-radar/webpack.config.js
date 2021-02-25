@@ -1,6 +1,5 @@
 const webpackConfig = require("ww-build");
 const path = require("path");
-const bb = require('@babel/preset-env');
 
 const config = webpackConfig({
   entry: path.resolve(__dirname, "./src/index.tsx"),
@@ -15,6 +14,6 @@ const config = webpackConfig({
       },
     ],
   },
-});
+}, path.resolve(__dirname, './config.json'));
 
 module.exports = config;

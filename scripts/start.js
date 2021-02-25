@@ -36,7 +36,7 @@ function getShellStr(conf) {
   let res = `cd packages/${conf.project} && cross-env NODE_ENV=${conf.node_env}`
 
   if (conf.analasy) {
-    res += `ANALASY=1 `
+    res += ` ANALASY=1 `
   }
 
   if (conf.node_env === 'development') {

@@ -10,7 +10,7 @@ import "antd/dist/antd.css";
 import "./index.css";
 
 export default () => {
-  const [radarData, setRadaData] = useState<any[]>(datas);
+  const [radarData, setRadaData] = useState<ApartmentData[]>(datas);
   const [tableData, setTabelData] = useState<any[]>([]);
   const [cords, setCords] = useState<number[][]>([]);
   const [sideData, setSideData] = useState<{ label: string; value: string }[]>(
@@ -19,43 +19,50 @@ export default () => {
 
   useEffect(() => {
     // 生成坐标
-    const cords = datas.map((data) => [data.lat, data.lng]);
+    const cords = getCordData(datas);
     setCords([...cords]);
 
-    const sideData = datas.map((data) => ({
-      label: data.name,
-      value: data.name,
-    }));
+    const sideData = getSideData(datas);
     setSideData([...sideData]);
 
-    const tableData: any[] = datas.map((data: any) => ({
-      name: data.name,
-      zone: `${data.zone}/${data.district}`,
-      prise: data.prise,
-      advantage: data.advantage,
-      disadvatage: data.disadvatage,
-    }));
+    const tableData: any[] = getTableData(datas);
     setTabelData(tableData);
   }, []);
 
   const handleSideChange = (selected: any[]) => {
-    // const names = selected.map((item) => item.value);
+
     const filtedDatas = datas.filter((data) => selected.includes(data.name));
 
-    const cords = filtedDatas.map((data) => [data.lat, data.lng]);
+    const cords = getCordData(filtedDatas);
     setCords([...cords]);
 
-    const tableData: any[] = filtedDatas.map((data: any) => ({
+    const tableData: any[] = getTableData(filtedDatas);
+    setTabelData(tableData);
+
+    setRadaData(filtedDatas);
+  };
+
+  const getCordData = (datas: ApartmentData[]) => {
+    return datas.map((data) => [data.lat, data.lng]);
+  };
+
+  const getSideData = (datas: ApartmentData[]) => {
+    return datas.map((data) => ({
+      label: data.name,
+      value: data.name,
+    }));
+  };
+
+  const getTableData = (datas: ApartmentData[]) => {
+    return datas.map((data: any) => ({
       name: data.name,
       zone: `${data.zone}/${data.district}`,
       prise: data.prise,
       advantage: data.advantage,
       disadvatage: data.disadvatage,
     }));
-    setTabelData(tableData);
-
-    setRadaData(filtedDatas);
   };
+
   return (
     <div className="apart-radar">
       <Side data={sideData} onChange={handleSideChange} />
