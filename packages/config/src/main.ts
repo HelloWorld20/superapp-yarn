@@ -9,8 +9,8 @@ import * as fs from "fs";
 
 export default class Config {
   config: Record<string, any> = {};
-  constructor(filename: string) {
-    this.config = Config.loadJSON(filename);
+  constructor(filePath: string) {
+    this.config = Config.loadJSON(filePath);
   }
 
   static loadJSON(filename: string) {
