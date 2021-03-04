@@ -1,4 +1,4 @@
-const webpackConfig = require("ww-build");
+const webpackConfig = require("ww-tools-build");
 const path = require("path");
 
 const config = webpackConfig({

@@ -1,5 +1,5 @@
 {
-  "name": "ww-build",
+  "name": "ww-tools-build",
   "version": "1.0.0",
   "description": "React的webpack打包工具",
   "main": "index.js",
