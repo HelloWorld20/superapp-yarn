@@ -21,6 +21,7 @@ export default ({ tableData }: IProps) => {
       title: "均价",
       dataIndex: "prise",
       key: "prise",
+      sorter: (a: Record<string, any>, b: Record<string, any>) => a.prise - b.prise,
     },
     {
       title: "优点",

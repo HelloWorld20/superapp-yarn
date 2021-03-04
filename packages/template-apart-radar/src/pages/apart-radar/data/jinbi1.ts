@@ -8,6 +8,7 @@ const data: ApartmentData = {
   disadvatage: "户型略差",
   lng: 113.287079,
   lat: 23.069,
+  selected: true,
   score: {
     transport: {
       data: 85,

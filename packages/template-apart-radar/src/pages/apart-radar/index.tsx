@@ -10,27 +10,29 @@ import "antd/dist/antd.css";
 import "./index.css";
 
 export default () => {
-  const [radarData, setRadaData] = useState<ApartmentData[]>(datas);
+  const [radarData, setRadaData] = useState<ApartmentData[]>([]);
   const [tableData, setTabelData] = useState<any[]>([]);
   const [cords, setCords] = useState<number[][]>([]);
-  const [sideData, setSideData] = useState<{ label: string; value: string }[]>(
-    []
-  );
+  const [sideData, setSideData] = useState<
+    { label: string; value: string; selected: boolean }[]
+  >([]);
 
   useEffect(() => {
+    const filtedDatas = datas.filter((data) => data.selected);
     // 生成坐标
-    const cords = getCordData(datas);
+    const cords = getCordData(filtedDatas);
     setCords([...cords]);
 
     const sideData = getSideData(datas);
     setSideData([...sideData]);
 
-    const tableData: any[] = getTableData(datas);
+    const tableData: any[] = getTableData(filtedDatas);
     setTabelData(tableData);
+
+    setRadaData(filtedDatas);
   }, []);
 
   const handleSideChange = (selected: any[]) => {
-
     const filtedDatas = datas.filter((data) => selected.includes(data.name));
 
     const cords = getCordData(filtedDatas);
@@ -50,6 +52,7 @@ export default () => {
     return datas.map((data) => ({
       label: data.name,
       value: data.name,
+      selected: !!data.selected,
     }));
   };
 
@@ -73,8 +76,10 @@ export default () => {
         <Col span={12}>
           <Map cords={cords} />
         </Col>
+        <Col span={24}>
+          <Table tableData={tableData} />;
+        </Col>
       </Row>
-      <Table tableData={tableData} />;
     </div>
   );
 };

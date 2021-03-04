@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Checkbox } from "antd";
+import { Checkbox, Button, Modal, Divider } from "antd";
+import { SettingFilled } from "@ant-design/icons";
 
 import "./index.css";
 
@@ -7,6 +8,7 @@ interface IProps {
   data: {
     label: string;
     value: string;
+    selected: boolean;
   }[];
 
   onChange: (selected: any[]) => void;
@@ -14,18 +16,34 @@ interface IProps {
 
 export default ({ data, onChange }: IProps) => {
   const [fold, setFold] = useState<boolean>(false);
-  const defaultValue = data.map((data) => data.value);
-  return (
-    <div className="side">
-      <div className="side-trigger">点击展开</div>
-      {/* <div className="side-body"></div> */}
-      {!!data.length && (
-        <Checkbox.Group
-          options={data}
-          onChange={onChange}
-          defaultValue={defaultValue}
-        ></Checkbox.Group>
-      )}
-    </div>
+  const defaultValue = data
+    .filter((data) => data.selected)
+    .map((data) => data.value);
+
+    return (
+    <>
+      <SettingFilled
+        className={`shake-constant ${
+          !fold && "shake-chunk"
+        } shake-constant--hover sticky-btn`}
+        onClick={() => setFold(!fold)}
+      />
+      <Modal
+        title="筛选"
+        visible={fold}
+        onCancel={() => setFold(false)}
+        onOk={(e) => {
+          setFold(false);
+        }}
+      >
+        {!!data.length && (
+          <Checkbox.Group
+            options={data}
+            onChange={onChange}
+            defaultValue={defaultValue}
+          ></Checkbox.Group>
+        )}
+      </Modal>
+    </>
   );
 };

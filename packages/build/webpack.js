@@ -11,17 +11,19 @@ function loadJSON(filename) {
   }
 }
 
-module.exports = (rawConfigs: WebpackConfig, staticConfigsPath: string) => {
+
+const devServerPort = 3000;
+
+module.exports = (rawConfigs, staticConfigsPath) => {
   const env = process.env.NODE_ENV;
   if (!env) throw new Error("找不到环境变量");
 
-  let staticConfigs: Record<string, any> = {};
+  let staticConfigs = {};
   if (staticConfigsPath) {
     staticConfigs = loadJSON(staticConfigsPath)
   }
 
-  const configs: Record<string, any> = {
-    ...staticConfigs,
+  const configs = {
     entry: rawConfigs.entry,
     distDir: rawConfigs.distDir,
     srcDir: rawConfigs.srcDir,
@@ -34,6 +36,20 @@ module.exports = (rawConfigs: WebpackConfig, staticConfigsPath: string) => {
     ),
     loaders: rawConfigs.loaders || [],
     plugins: rawConfigs.plugins || [],
+    ...staticConfigs,
+    devServer: Object.assign(
+      {
+        hot: true,
+        port: devServerPort,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers':
+            'Content-Type,Content-Length,Accept,X-Requested-With',
+          'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
+        },
+      },
+      staticConfigs.devServer
+    ),
   };
 
   const isDev = env === "development";

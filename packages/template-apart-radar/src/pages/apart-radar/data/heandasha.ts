@@ -8,6 +8,7 @@ const data: ApartmentData = {
   disadvatage: "无学区",
   lng: 113.285347,
   lat: 23.066601,
+  selected: true,
   score: {
     transport: {
       data: 84,

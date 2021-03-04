@@ -8,6 +8,7 @@ const data: ApartmentData = {
   disadvatage: "价格偏贵",
   lng: 113.287231,
   lat: 23.06678,
+  selected: true,
   score: {
     transport: {
       data: 82,

@@ -45,4 +45,6 @@ declare interface ApartmentData {
   lat: number;
   /** 展示字段 */
   score: ApartScoreOption;
+  /** 是否默认选中 */
+  selected?: boolean;
 }
