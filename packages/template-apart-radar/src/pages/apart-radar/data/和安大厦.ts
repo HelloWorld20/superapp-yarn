@@ -1,6 +1,6 @@
 const data: ApartmentData = {
   name: "和安大厦",
-  prise: 41683,
+  prise: 43994,
   totalPrise: 300,
   zone: "海珠区",
   district: "石溪",

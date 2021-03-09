@@ -1,25 +1,25 @@
 const data: ApartmentData = {
-  name: "东港花园",
-  prise: 43110,
+  name: "悦涛雅苑",
+  prise: 39511,
   totalPrise: 300,
   zone: "黄埔区",
-  district: "老黄埔:双岗",
-  advantage: "房龄新、地铁上盖、距离黄埔中心近、学区好",
-  disadvatage: "周围配套太一般。啥都没有",
-  lng: 113.474358,
-  lat: 23.09573,
+  district: "老黄埔:大沙东",
+  advantage: "学区好、地段好、配套好、发展潜力足、地铁上盖。预测未来旁边十年后是CBD",
+  disadvatage: "门口是垃圾堆、非封闭式管理、周围目前大工地",
+  lng: 113.45768,
+  lat: 23.098974,
   selected: true,
   score: {
     transport: {
-      data: 75,
+      data: 80,
       desc: "",
     },
     enviranment: {
-      data: 70,
+      data: 65,
       desc: "",
     },
     education: {
-      data: 85,
+      data: 95,
       desc: "",
     },
     quality: {
@@ -27,23 +27,23 @@ const data: ApartmentData = {
       desc: "",
     },
     age: {
-      data: 95,
-      desc: "14年",
+      data: 55,
+      desc: "00年",
     },
     style: {
-      data: 80,
-      desc: "暂无",
+      data: 75,
+      desc: "",
     },
     appreciation: {
       data: 75,
       desc: "",
     },
     equipment: {
-      data: 50,
+      data: 70,
       desc: "",
     },
     prise: {
-      data: 60
+      data: 70
     }
   },
 };

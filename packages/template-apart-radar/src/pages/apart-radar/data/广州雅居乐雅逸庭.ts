@@ -1,6 +1,6 @@
 const data: ApartmentData = {
   name: "广州雅居乐雅逸庭",
-  prise: 33914,
+  prise: 39770,
   totalPrise: 300,
   zone: "番禺区",
   district: "南村万博",

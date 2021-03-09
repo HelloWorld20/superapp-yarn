@@ -1,6 +1,6 @@
 const data: ApartmentData = {
   name: "保利百合",
-  prise: 43109,
+  prise: 45110,
   totalPrise: 300,
   zone: "海珠区",
   district: "石溪",

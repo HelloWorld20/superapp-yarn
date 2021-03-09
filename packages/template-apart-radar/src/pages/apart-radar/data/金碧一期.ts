@@ -1,6 +1,6 @@
 const data: ApartmentData = {
   name: "第一金碧",
-  prise: 38189,
+  prise: 39991,
   totalPrise: 300,
   zone: "海珠区",
   district: "石溪",
@@ -27,7 +27,7 @@ const data: ApartmentData = {
       desc: "",
     },
     age: {
-      data: 65,
+      data: 60,
       desc: "",
     },
     style: {

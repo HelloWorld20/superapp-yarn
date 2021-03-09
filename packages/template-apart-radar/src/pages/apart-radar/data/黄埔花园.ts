@@ -1,49 +1,49 @@
 const data: ApartmentData = {
   name: "黄埔花园",
-  prise: 38734,
+  prise: 53118,
   totalPrise: 300,
   zone: "黄埔区",
-  district: "大沙东（老黄埔）",
-  advantage: "恒大物业、户型不错，地铁近。直达珠江新城地铁",
-  disadvatage: "小区环境很差",
+  district: "老黄埔:大沙东",
+  advantage: "学区好、配套好、地段好、房龄新、发展潜力足、地铁近。总之啥都好",
+  disadvatage: "价格超预算",
   lng: 113.45768,
   lat: 23.098974,
   selected: true,
   score: {
     transport: {
-      data: 80,
+      data: 75,
       desc: "",
     },
     enviranment: {
-      data: 50,
+      data: 85,
       desc: "",
     },
     education: {
-      data: 70,
+      data: 95,
       desc: "",
     },
     quality: {
-      data: 70,
+      data: 75,
       desc: "",
     },
     age: {
-      data: 70,
-      desc: "",
+      data: 90,
+      desc: "11年",
     },
     style: {
-      data: 80,
+      data: 60,
       desc: "",
     },
     appreciation: {
-      data: 65,
+      data: 90,
       desc: "",
     },
     equipment: {
-      data: 70,
+      data: 75,
       desc: "",
     },
     prise: {
-      data: 75
+      data: 55
     }
   },
 };

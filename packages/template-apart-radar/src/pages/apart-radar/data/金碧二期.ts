@@ -1,6 +1,6 @@
 const data: ApartmentData = {
     name: "第二金碧",
-    prise: 38734,
+    prise: 41883,
     totalPrise: 300,
     zone: "海珠区",
     district: "石溪",
@@ -47,6 +47,5 @@ const data: ApartmentData = {
       }
     },
   };
-  
+
   export default data;
-  

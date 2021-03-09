@@ -1,6 +1,6 @@
 const data: ApartmentData = {
   name: "棠德花园",
-  prise: 31092,
+  prise: 30449,
   totalPrise: 300,
   zone: "天河区",
   district: "棠下",
