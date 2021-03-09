@@ -17,6 +17,10 @@ async function getAnswer() {
         {
           name: 'server：统一server端',
           value: 'server'
+        },
+        {
+          name: 'utils：全局公共方法',
+          value: 'utils'
         }
       ]
     }

@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "lib",
+    "outDir": "lib",
+    "module": "esnext",
+    "target": "esnext"
+  },
+  "include": ["src", "lib.d.ts"],
+  "exclude": ["**/*.test.ts", "**/*.spec.ts"]
+}

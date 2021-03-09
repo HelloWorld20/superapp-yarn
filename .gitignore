@@ -10,3 +10,4 @@ dist
 lerna-debug.log
 package.json.lerna_backup
 yarn-error.log
+lib

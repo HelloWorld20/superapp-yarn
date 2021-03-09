@@ -7,9 +7,11 @@ import {
 } from "react-router-dom";
 
 import ApartRadar from "./pages/apart-radar";
+import DoubleMap from './pages/double-map'
 
 export const routeList = {
   apratRadar: ApartRadar,
+  doubleMap: DoubleMap
 };
 
 function getRoutes(routeList: Record<string, any>) {

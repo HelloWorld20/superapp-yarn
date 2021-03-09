@@ -2,9 +2,10 @@
   "name": "ww-utils",
   "version": "1.0.0",
   "description": "通用工具函数库",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc -p tsconfig.lib.json -w",
+    "build": "rimraf ./lib && tsc -p tsconfig.lib.json"
   },
   "keywords": [],
   "author": "",
