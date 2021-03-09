@@ -1,6 +1,6 @@
 // access_tocken中控服务器
 import * as Api from "./api";
-import * as config from "./config";
+import * as config from "ww-config";
 const { AppId, AppSecret } = config.get("wechat");
 
 class TockenProxy {

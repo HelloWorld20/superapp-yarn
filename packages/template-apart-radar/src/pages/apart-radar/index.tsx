@@ -10,45 +10,45 @@ import "antd/dist/antd.css";
 import "./index.css";
 
 export default () => {
-  const [radarData, setRadaData] = useState<ApartmentData[]>([]);
-  const [tableData, setTabelData] = useState<any[]>([]);
-  const [cords, setCords] = useState<number[][]>([]);
-  const [sideData, setSideData] = useState<
+  const [雷达图数据, set雷达数据] = useState<ApartmentData[]>([]);
+  const [表格数据, set表格数据] = useState<any[]>([]);
+  const [地图数据, set地图数据] = useState<number[][]>([]);
+  const [侧边栏数据, set侧边栏数据] = useState<
     { label: string; value: string; selected: boolean }[]
   >([]);
 
   useEffect(() => {
-    const filtedDatas = datas.filter((data) => data.selected);
+    const 过滤后数据 = datas.filter((data) => data.selected);
     // 生成坐标
-    const cords = getCordData(filtedDatas);
-    setCords([...cords]);
+    const cords = get地图数据(过滤后数据);
+    set地图数据([...cords]);
 
-    const sideData = getSideData(datas);
-    setSideData([...sideData]);
+    const sideData = get侧边栏数据(datas);
+    set侧边栏数据([...sideData]);
 
-    const tableData: any[] = getTableData(filtedDatas);
-    setTabelData(tableData);
+    const tableData: any[] = get表格数据(过滤后数据);
+    set表格数据(tableData);
 
-    setRadaData(filtedDatas);
+    set雷达数据(过滤后数据);
   }, []);
 
-  const handleSideChange = (selected: any[]) => {
-    const filtedDatas = datas.filter((data) => selected.includes(data.name));
+  const handle侧边栏改变 = (selected: any[]) => {
+    const 过滤后的数据 = datas.filter((data) => selected.includes(data.name));
 
-    const cords = getCordData(filtedDatas);
-    setCords([...cords]);
+    const cords = get地图数据(过滤后的数据);
+    set地图数据([...cords]);
 
-    const tableData: any[] = getTableData(filtedDatas);
-    setTabelData(tableData);
+    const tableData: any[] = get表格数据(过滤后的数据);
+    set表格数据(tableData);
 
-    setRadaData(filtedDatas);
+    set雷达数据(过滤后的数据);
   };
 
-  const getCordData = (datas: ApartmentData[]) => {
+  const get地图数据 = (datas: ApartmentData[]) => {
     return datas.map((data) => [data.lat, data.lng]);
   };
 
-  const getSideData = (datas: ApartmentData[]) => {
+  const get侧边栏数据 = (datas: ApartmentData[]) => {
     return datas.map((data) => ({
       label: data.name,
       value: data.name,
@@ -56,7 +56,7 @@ export default () => {
     }));
   };
 
-  const getTableData = (datas: ApartmentData[]) => {
+  const get表格数据 = (datas: ApartmentData[]) => {
     return datas.map((data: any) => ({
       name: data.name,
       zone: `${data.zone}/${data.district}`,
@@ -68,16 +68,16 @@ export default () => {
 
   return (
     <div className="apart-radar">
-      <Side data={sideData} onChange={handleSideChange} />
+      <Side data={侧边栏数据} onChange={handle侧边栏改变} />
       <Row>
         <Col span={12}>
-          <Radar datas={radarData} />
+          <Radar datas={雷达图数据} />
         </Col>
         <Col span={12}>
-          <Map cords={cords} />
+          <Map cords={地图数据} />
         </Col>
         <Col span={24}>
-          <Table tableData={tableData} />;
+          <Table tableData={表格数据} />;
         </Col>
       </Row>
     </div>
