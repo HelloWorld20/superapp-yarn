@@ -20,7 +20,7 @@ const data: ApartmentData = {
     },
     education: {
       data: 95,
-      desc: "",
+      desc: "怡园小学（省一级）",
     },
     quality: {
       data: 75,
