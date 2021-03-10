@@ -1,1 +1,1 @@
-declare var TMap: any;
+declare var AMap: any;
