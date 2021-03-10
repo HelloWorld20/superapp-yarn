@@ -20,7 +20,7 @@ const data: ApartmentData = {
     },
     education: {
       data: 85,
-      desc: "",
+      desc: "文冲小学（省一级）",
     },
     quality: {
       data: 70,
