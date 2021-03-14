@@ -24,6 +24,7 @@
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "ww-config": "1.0.0",
     "ww-tools-build": "^1.0.0",
     "ww-tools-upload-cdn": "^1.0.0",
     "ww-utils": "1.0.0"
