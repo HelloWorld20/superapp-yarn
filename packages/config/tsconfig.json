@@ -13,9 +13,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "downlevelIteration": true,
-    "paths": {
-      "ww-*": ["../*"],
-    },
     "pretty": true,
     "resolveJsonModule": true,
     "sourceMap": true,

@@ -2,15 +2,12 @@
   "name": "ww-config",
   "version": "1.0.0",
   "description": "配置中心",
-  "main": "./src/main.ts",
-  "types": "global.d.ts",
+  "main": "./lib/main.js",
+  "types": "./lib/main.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p tsconfig.lib.json"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/react": "^17.0.2"
-  }
+  "license": "ISC"
 }

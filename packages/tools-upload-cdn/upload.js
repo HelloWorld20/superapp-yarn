@@ -4,16 +4,16 @@ const chalk = require('chalk');
 const COS = require('cos-nodejs-sdk-v5');
 
 class Uploader {
-    constructor(folderPath, configPath) {
+    constructor(folderPath, config) {
         this.folderPath = folderPath;
-        this.configPath = configPath;
+        // this.configPath = configPath;
 
-        const config = this.loadJSON(configPath);
+        // const config = this.loadJSON(configPath);
         this.config = config;
 
         this.cos = new COS({
-            SecretId: config.cos.SecretId,
-            SecretKey: config.cos.SecretKey,
+            SecretId: config.SecretId,
+            SecretKey: config.SecretKey,
         });
     }
 
@@ -22,8 +22,8 @@ class Uploader {
 
         return new Promise((resolve, reject) => {
             this.cos.sliceUploadFile({
-                Bucket: this.config.cos.Bucket, // Bucket 格式：test-1250000000
-                Region: this.config.cos.Region,
+                Bucket: this.config.Bucket, // Bucket 格式：test-1250000000
+                Region: this.config.Region,
                 Key: `/app/${fileName}`,
                 FilePath: filePath
             }, function (err, data) {
@@ -64,7 +64,7 @@ class Uploader {
                             var isFile = stats.isFile();//是文件
                             var isDir = stats.isDirectory();//是文件夹
                             if (isFile) {
-                                this.uploadFile(filedir, `${this.config.cos.name}/${filename}`)
+                                this.uploadFile(filedir, `${this.config.name}/${filename}`)
                             }
                             if (isDir) {
                                 this.uploadFolder(filedir);//递归，如果是文件夹，就继续遍历该文件夹下面的文件

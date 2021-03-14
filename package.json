@@ -9,7 +9,9 @@
     "dev-server": "cd packages/server && npm run dev",
     "dev-static": "cd packages/template-apart-radar && npm run dev",
     "build-static": "cd packages/template-apart-radar && npm run build",
-    "upload": "cd packages/tools-upload-cdn && npm run upload"
+    "upload": "cd packages/tools-upload-cdn && npm run upload",
+    "test": "cd packages/server && yarn dev",
+    "test_config": "cd packages/config && yarn build"
   },
   "devDependencies": {
     "chalk": "^4.1.0",
