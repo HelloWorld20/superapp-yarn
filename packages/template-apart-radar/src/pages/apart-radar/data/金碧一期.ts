@@ -9,6 +9,7 @@ const data: ApartmentData = {
   lng: 113.287079,
   lat: 23.069,
   selected: true,
+  url: 'https://gz.lianjia.com/xiaoqu/2110343238860955/',
   score: {
     transport: {
       data: 85,

@@ -8,6 +8,7 @@ const data: ApartmentData = {
   disadvatage: "地铁远、房龄旧",
   lng: 113.273941,
   lat: 23.070948,
+  url: "https://gz.lianjia.com/xiaoqu/2110343238598941/",
   score: {
     transport: {
       data: 65,

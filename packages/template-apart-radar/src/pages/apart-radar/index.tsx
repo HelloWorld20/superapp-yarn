@@ -58,6 +58,7 @@ export default () => {
 
   const get表格数据 = (datas: ApartmentData[]) => {
     return datas.map((data: any) => ({
+      url: data.url,
       name: data.name,
       zone: `${data.zone}/${data.district}`,
       prise: data.prise,

@@ -47,4 +47,6 @@ declare interface ApartmentData {
   score: ApartScoreOption;
   /** 是否默认选中 */
   selected?: boolean;
+  /** 链家首页 */
+  url: string;
 }

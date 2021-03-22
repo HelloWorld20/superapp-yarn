@@ -11,6 +11,14 @@ export default ({ tableData }: IProps) => {
       title: "小区名称",
       dataIndex: "name",
       key: "name",
+      render: (text: string, data: Record<string, any>) => {
+        console.log(data);
+        return (
+          <a href={data.url} target="_blank">
+            {text}
+          </a>
+        );
+      },
     },
     {
       title: "行政区",
@@ -21,7 +29,8 @@ export default ({ tableData }: IProps) => {
       title: "均价",
       dataIndex: "prise",
       key: "prise",
-      sorter: (a: Record<string, any>, b: Record<string, any>) => a.prise - b.prise,
+      sorter: (a: Record<string, any>, b: Record<string, any>) =>
+        a.prise - b.prise,
     },
     {
       title: "优点",
