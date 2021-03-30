@@ -2,15 +2,19 @@
  * @Author: jianghong.wei
  * @Date: 2020-12-29 00:24:46
  * @Last Modified by: jianghong.wei
- * @Last Modified time: 2020-12-29 00:29:40
+ * @Last Modified time: 2021-03-29 23:23:01
  */
 
 import * as fs from "fs";
 
 export default class Config {
   config: Record<string, any> = {};
-  constructor(filePath: string) {
-    this.config = Config.loadJSON(filePath);
+  constructor(input: string | Record<string, any>) {
+    if (typeof input === "string") {
+      this.config = Config.loadJSON(input);
+    } else {
+      this.config = input;
+    }
   }
 
   static loadJSON(filename: string) {

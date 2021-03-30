@@ -1,13 +1,20 @@
 import express from "express";
 import * as bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import * as config from "./config";
+// import * as config from "./config";
 import _404 from "./middlewares/404";
 import _error from "./middlewares/error";
 
-const NODE_ENV = config.get("NODE_ENV");
-const RUNTIME_ENV = config.get("RUNTIME_ENV");
-const ALLOW_ORIGINS = config.get("allowOrigins")
+// const NODE_ENV = config.get("NODE_ENV");
+// const RUNTIME_ENV = config.get("RUNTIME_ENV");
+// const ALLOW_ORIGINS = config.get("allowOrigins")
+
+const NODE_ENV = "development"
+const RUNTIME_ENV = "RUNTIME_ENV"
+const ALLOW_ORIGINS = [
+  "http://localhost:3000",
+  "http://localhost:3001"
+]
 
 export function createApp(settings: any) {
   const app = express();

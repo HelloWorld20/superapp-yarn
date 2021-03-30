@@ -5,7 +5,7 @@
     "declarationDir": "lib",
     "outDir": "lib",
     "module": "commonjs",
-    "target": "es5"
+    "target": "es6"
   },
   "include": ["src", "lib.d.ts"],
   "exclude": ["**/*.test.ts", "**/*.spec.ts"]

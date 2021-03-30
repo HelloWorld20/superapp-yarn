@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.lib.json",
     "dev": "nodemon"
   },
   "keywords": [],
@@ -40,6 +41,7 @@
     "typescript": "^3.7.2",
     "uuid": "^3.3.3",
     "ww-config": "1.0.0",
+    "ww-framework": "1.0.0",
     "ww-utils-server": "^1.0.0"
   },
   "devDependencies": {

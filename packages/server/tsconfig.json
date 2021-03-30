@@ -13,7 +13,7 @@
     "noImplicitThis": false,
     "baseUrl": "../../",
     "paths": {
-      "packages/*": ["*/src"]
+      "ww-*": ["packages/*"]
     }
   },
   "include": ["src"],

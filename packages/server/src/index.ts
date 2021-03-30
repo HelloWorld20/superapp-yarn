@@ -1,9 +1,11 @@
 import app from "./app";
-import * as config from "ww-config";
+import config from './config'
 
-const host = config.get("host");
 const port = config.get("port");
 
+// const host = 'http://localhost';
+// const port = 4000
+
 app.create().listen(port, () => {
-  console.log(`${host} listening on ${port}`);
+  console.log(`listening on ${port}`);
 });

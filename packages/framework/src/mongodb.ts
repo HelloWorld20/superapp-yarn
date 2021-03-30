@@ -2,15 +2,21 @@
  * @Author: jianghong.wei
  * @Date: 2019-11-21 15:07:35
  * @Last Modified by: jianghong.wei
- * @Last Modified time: 2019-12-03 10:30:50
+ * @Last Modified time: 2021-03-24 23:50:42
  * mongodb管理
  */
 import * as mongoose from "mongoose";
-import * as config from "./config";
-const mongoConf = config.get("mongo");
+// import * as config from "./config";
+// const mongoConf = config.get("mongo");
+const mongoConf = {
+  host: "118.24.146.135",
+  port: 27017,
+  user: "user",
+  password: "7Ih15DBAoPLk6kQV",
+};
 
 // mongoose.connect('mongodb://用户名:密码@127.0.0.1:27017/数据库名称')
-const DB_URL = (function() {
+const DB_URL = (function () {
   if (mongoConf.user && mongoConf.password) {
     return `mongodb://${mongoConf.user}:${mongoConf.password}@${mongoConf.host}:${mongoConf.port}/admin`;
   } else {
@@ -21,16 +27,17 @@ const DB_URL = (function() {
 /**
  * 连接断开
  */
-mongoose.connection.on("disconnected", function() {
+mongoose.connection.on("disconnected", function () {
   console.log("Mongoose 连接断开");
 });
 
 class Mongo {
+  isConnected = false;
   constructor() {
     /**
      * 连接
      */
-    mongoose.connect(DB_URL, err => {
+    mongoose.connect(DB_URL, (err) => {
       if (err) {
         this.isConnected = false;
         console.log("Mongoose 连接错误: " + err);
@@ -44,9 +51,9 @@ class Mongo {
   find(collection: string, schema: any, condition?: Record<string, any>) {
     const Model = mongoose.model(collection, schema);
     if (condition) {
-      return Model.find(condition, {_id: 0, __v: 0});
+      return Model.find(condition, { _id: 0, __v: 0 });
     } else {
-      return Model.find({}, {_id: 0, __v: 0});
+      return Model.find({}, { _id: 0, __v: 0 });
     }
   }
   // 插入一个
@@ -72,7 +79,7 @@ class Mongo {
   }
 
   getModal(collection: string, schema: any) {
-    const Modal = mongoose.model(collection,schema);
+    const Modal = mongoose.model(collection, schema);
     return Modal;
   }
 

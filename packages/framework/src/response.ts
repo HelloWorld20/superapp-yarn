@@ -9,7 +9,7 @@ import { ServiceError } from './error';
  * @param {string} view 页面视图
  * @param {*} data 需要渲染到页面视图上的模板数据
  */
-export function render(req: any, res: any, view: any, data: any) {
+export function render(_: any, res: any, view: any, data: any) {
 	res.render(view, Object.assign({}, data));
 }
 
@@ -56,6 +56,7 @@ export function json(res: any, data: any) {
 				(v as any).__v = null;
 				return v;
 			}
+      return null;
 		});
 	} else if (_.isObject(data)) {
 		delete (data as any)._id;

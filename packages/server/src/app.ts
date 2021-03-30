@@ -1,15 +1,14 @@
 import routes from "./routes";
-import * as config from "ww-config";
-import { createApp } from "ww-middleware/src/app";
+import { createApp } from 'ww-framework/lib/app';
 import middlewares from "./middlewares";
-import errorHandler from "ww-middleware/src/error-handler";
+import errorHandler from "./middlewares/error-handler";
+import config from './config';
 
 function create() {
   const app = createApp({
     routes,
     middlewares,
     errorHandler,
-    views: config.get("static.distDir") || ""
   });
   app.enable("trust proxy");
   return app;

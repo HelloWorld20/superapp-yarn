@@ -3,7 +3,7 @@
     "ext": "ts js",
     "legacyWatch": true,
     "watch": ["./src"],
-    "ignore": ["node_modules", "dist",".git"],
+    "ignore": ["node_modules", "dist"],
     "exec": "node -r ts-node/register --inspect=4005 ./src/index.ts",
     "env": {
       "PORT": 12000,

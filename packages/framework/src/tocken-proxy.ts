@@ -1,8 +1,9 @@
 // access_tocken中控服务器
 import * as Api from "./api";
-import * as config from "ww-config";
-const { AppId, AppSecret } = config.get("wechat");
-
+// import * as config from "ww-config";
+// const { AppId, AppSecret } = config.get("wechat");
+const AppId = "wxe6eadfba29db766f";
+const AppSecret = "4a98a11e54635e372ffafd17e366f8c9";
 class TockenProxy {
   constructor() {
     this.fetchAndSaveTocken();
@@ -15,8 +16,8 @@ class TockenProxy {
       params: {
         grant_type: "client_credential",
         appid: AppId,
-        secret: AppSecret
-      }
+        secret: AppSecret,
+      },
     });
   }
   async fetchAndSaveTocken() {
