@@ -8,7 +8,7 @@ const data: ApartmentData = {
   disadvatage: "周围配套太一般。啥都没有",
   lng: 113.474358,
   lat: 23.09573,
-  selected: true,
+  // selected: true,
   url: 'https://gz.lianjia.com/xiaoqu/2111103318150/',
   score: {
     transport: {

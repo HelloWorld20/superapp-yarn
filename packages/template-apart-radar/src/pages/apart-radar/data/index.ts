@@ -9,4 +9,7 @@ export default [
   require("./东港花园").default,
   require("./悦涛雅苑").default,
   require("./黄埔花园").default,
+  require("./丰逸尚居").default,
+  require("./信达大厦").default,
+  require("./四季花园").default,
 ];
