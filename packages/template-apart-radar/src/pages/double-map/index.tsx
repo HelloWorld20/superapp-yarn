@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "antd";
 
-import datas from "@/datas/house";
+import datas from "@/datas/community";
 
 import { mainDistrict, MainDistrict } from "@/datas/核心位置";
 import Map from "@/components/map";
