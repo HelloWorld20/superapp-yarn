@@ -12,7 +12,6 @@ export default ({ tableData }: IProps) => {
       dataIndex: "name",
       key: "name",
       render: (text: string, data: Record<string, any>) => {
-        console.log(data);
         return (
           <a href={data.url} target="_blank">
             {text}

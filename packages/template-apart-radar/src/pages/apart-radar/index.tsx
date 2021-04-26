@@ -4,7 +4,7 @@ import Map from "@/components/map/index";
 import Table from "./table/index";
 import Radar from "./radar/index";
 import Side from "./sidebar/index";
-import datas from "@/datas/house/index";
+import datas from "@/datas/house";
 import { mainDistrict, MainDistrict } from "@/datas/核心位置";
 
 import "antd/dist/antd.css";
