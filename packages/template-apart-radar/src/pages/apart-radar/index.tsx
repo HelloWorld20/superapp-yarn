@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "antd";
-import Map from "./map/index";
+import Map from "@/components/map/index";
 import Table from "./table/index";
 import Radar from "./radar/index";
 import Side from "./sidebar/index";
-import datas from "./data/house/index";
-import { mainDistrict, MainDistrict } from "./data/核心位置";
+import datas from "@/datas/house/index";
+import { mainDistrict, MainDistrict } from "@/datas/核心位置";
 
 import "antd/dist/antd.css";
 import "./index.css";
