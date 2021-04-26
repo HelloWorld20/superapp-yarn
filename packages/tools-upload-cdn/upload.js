@@ -7,7 +7,7 @@ class Uploader {
     constructor(folderPath, config) {
         this.folderPath = folderPath;
         // this.configPath = configPath;
-
+        console.log('上传配置：', config)
         // const config = this.loadJSON(configPath);
         this.config = config;
 

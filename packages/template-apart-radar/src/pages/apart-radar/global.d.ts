@@ -1,1 +1,1 @@
-declare var AMap: any;
+// declare var AMap: any;
