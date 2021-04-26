@@ -1,17 +1,14 @@
 import React from "react";
-import {
-  Route,
-  Switch,
-  HashRouter,
-  Redirect,
-} from "react-router-dom";
+import { Route, Switch, HashRouter, Redirect } from "react-router-dom";
 
-import ApartRadar from "./pages/apart-radar";
-import DoubleMap from './pages/double-map'
+import Community from "./pages/community";
+import DoubleMap from "./pages/double-map";
+import Apartment from "./pages/apartment";
 
 export const routeList = {
-  apratRadar: ApartRadar,
-  doubleMap: DoubleMap
+  community: Community,
+  doubleMap: DoubleMap,
+  apartment: Apartment,
 };
 
 function getRoutes(routeList: Record<string, any>) {
@@ -25,7 +22,7 @@ export default function () {
     <HashRouter>
       {/* 渲染第一个匹配到的Route */}
       <Switch>
-        <Route path="/" exact component={ApartRadar} />
+        <Route path="/" exact component={Community} />
         {getRoutes(routeList)}
         <Redirect to="/" />
       </Switch>
