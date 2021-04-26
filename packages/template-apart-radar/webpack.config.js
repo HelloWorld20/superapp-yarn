@@ -7,8 +7,8 @@ const config = webpackConfig({
   distDir: path.resolve(__dirname, "dist"),
   resolve: {
     alias: {
-      'components': path.resolve(__dirname, './src/components'),
-      'datas': path.resolve(__dirname, './src/datas')
+      '@/components': path.resolve(__dirname, './src/components'),
+      '@/datas': path.resolve(__dirname, './src/datas')
     }
   },
   template: {
