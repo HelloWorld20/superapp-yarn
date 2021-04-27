@@ -5,6 +5,12 @@ const config = webpackConfig({
   entry: path.resolve(__dirname, "./src/index.tsx"),
   srcDir: path.resolve(__dirname, "src"),
   distDir: path.resolve(__dirname, "dist"),
+  resolve: {
+    alias: {
+      '@/components': path.resolve(__dirname, './src/components'),
+      '@/datas': path.resolve(__dirname, './src/datas')
+    }
+  },
   template: {
     source: path.resolve(__dirname, "src"),
     views: [

@@ -1,5 +1,5 @@
 const data: ApartmentData = {
-  name: " ",
+  name: "信达大厦",
   prise: 39479,
   totalPrise: 300,
   zone: "黄浦区",

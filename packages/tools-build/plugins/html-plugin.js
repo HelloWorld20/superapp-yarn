@@ -8,7 +8,7 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 // 其中：
 // views: [{ view: 'views/store.ejs', ext: '.ejs', filename: 'store.ejs', chunks: ['store'] }, ...]
 // 其中：view是模板视图，ext指定页面扩展名，默认是'.html'，filename是编译后文件名（当不指定时，根据view和ext自动生成），chunks是此视图要引入的模块（同名的js和css模块）
-module.exports = function(env, configs) {
+module.exports = function (env, configs) {
   // let template = configs.template;
   // if (template.target) {
   //   // 末尾补充/

@@ -30,9 +30,10 @@ module.exports = (rawConfigs, staticConfigsPath) => {
     resolve: Object.assign(
       {
         extensions: [],
-        alias: []
+        alias: [],
+        template: rawConfigs.template,
       },
-      rawConfigs
+      rawConfigs.resolve
     ),
     loaders: rawConfigs.loaders || [],
     plugins: rawConfigs.plugins || [],

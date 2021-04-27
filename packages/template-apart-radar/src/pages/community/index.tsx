@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Row, Col } from "antd";
-import Map from "./map/index";
+import Map from "@/components/map/index";
 import Table from "./table/index";
 import Radar from "./radar/index";
 import Side from "./sidebar/index";
-import datas from "./data/index";
+import datas from "@/datas/community";
+import { mainDistrict, MainDistrict } from "@/datas/核心位置";
 
 import "antd/dist/antd.css";
 import "./index.css";
@@ -13,6 +14,12 @@ export default () => {
   const [雷达图数据, set雷达数据] = useState<ApartmentData[]>([]);
   const [表格数据, set表格数据] = useState<any[]>([]);
   const [地图数据, set地图数据] = useState<number[][]>([]);
+  const [核心区域坐标, set核心区域坐标] = useState<
+    {
+      cords: number[];
+      importance: number;
+    }[]
+  >([]);
   const [侧边栏数据, set侧边栏数据] = useState<
     { label: string; value: string; selected: boolean }[]
   >([]);
@@ -28,6 +35,8 @@ export default () => {
 
     const tableData: any[] = get表格数据(过滤后数据);
     set表格数据(tableData);
+
+    set核心区域坐标(get核心区域坐标(mainDistrict));
 
     set雷达数据(过滤后数据);
   }, []);
@@ -67,6 +76,13 @@ export default () => {
     }));
   };
 
+  const get核心区域坐标 = (datas: MainDistrict[]) => {
+    return datas.map((data) => ({
+      cords: [data.lng, data.lat],
+      importance: data.value,
+    }));
+  };
+
   return (
     <div className="apart-radar">
       <Side data={侧边栏数据} onChange={handle侧边栏改变} />
@@ -75,7 +91,7 @@ export default () => {
           <Radar datas={雷达图数据} />
         </Col>
         <Col span={12}>
-          <Map cords={地图数据} />
+          <Map mainPosition={核心区域坐标} houseCords={地图数据} />
         </Col>
         <Col span={24}>
           <Table tableData={表格数据} />;

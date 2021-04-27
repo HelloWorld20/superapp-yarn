@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Table } from "antd";
+import apartData from '@/datas/aparts'
 
-interface IProps {
-  tableData: any[];
-}
+export default () => {
+  const [tableData, setTableData] = useState([]);
+  useEffect(() => {
+    console.log(apartData);
+    
+    setTableData([]);
+  }, []);
 
-export default ({ tableData }: IProps) => {
   const columns = [
     {
       title: "小区名称",
       dataIndex: "name",
       key: "name",
       render: (text: string, data: Record<string, any>) => {
-        console.log(data);
         return (
           <a href={data.url} target="_blank">
             {text}
@@ -43,6 +46,5 @@ export default ({ tableData }: IProps) => {
       key: "disadvatage",
     },
   ];
-
   return <Table dataSource={tableData} columns={columns} />;
 };

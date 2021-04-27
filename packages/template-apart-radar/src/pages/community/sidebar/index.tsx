@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Checkbox, Button, Modal, Divider } from "antd";
+import { Checkbox, Modal } from "antd";
 import { SettingFilled } from "@ant-design/icons";
 
 import "./index.css";
@@ -20,7 +20,7 @@ export default ({ data, onChange }: IProps) => {
     .filter((data) => data.selected)
     .map((data) => data.value);
 
-    return (
+  return (
     <>
       <SettingFilled
         className={`shake-constant ${
