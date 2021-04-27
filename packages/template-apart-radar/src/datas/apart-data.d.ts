@@ -1,3 +1,7 @@
+/**
+ * 房源具体数据声明
+ */
+
 declare interface ApartmentDataOption {
   /** 标题 */
   title: string;
@@ -6,15 +10,15 @@ declare interface ApartmentDataOption {
   /** 户型图 */
   blueprint: string;
   /** 面积 */
-  size: number;
+  size: string;
   /** 均价 */
-  averavePrize: number;
+  averavePrize: string;
   /** 总价 */
-  totalPrize: number;
+  totalPrize: string;
   /** 年份 */
-  age: number;
+  age: string;
   /** 楼层 */
-  storey?: number | string;
+  storey?: string;
   /** 朝向 */
   orientation?: string;
   /** 评论 */
@@ -38,6 +42,10 @@ declare interface ApartmentDataScore {
   light: dataOption;
   /** 通风 */
   air: dataOption;
+  /** 嘈杂度 */
+  noise: dataOption;
+  /** 视野：阳台、窗户的视野 */
+  view: dataOption;
   /** 风水 */
   geomancy?: dataOption;
 }

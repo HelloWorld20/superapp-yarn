@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 const TerserPlugin = require("terser-webpack-plugin");
 
 function loadJSON(filename) {
@@ -6,21 +6,19 @@ function loadJSON(filename) {
     const content = fs.readFileSync(filename, "utf8");
     return JSON.parse(content);
   } catch (error) {
-    console.warn('loadJson错误', error)
+    console.warn("loadJson错误", error);
     return {};
   }
 }
-
 
 const devServerPort = 3000;
 
 module.exports = (rawConfigs, staticConfigsPath) => {
   const env = process.env.NODE_ENV;
   if (!env) throw new Error("找不到环境变量");
-
   let staticConfigs = {};
   if (staticConfigsPath) {
-    staticConfigs = loadJSON(staticConfigsPath)
+    staticConfigs = loadJSON(staticConfigsPath);
   }
 
   const configs = {
@@ -43,13 +41,13 @@ module.exports = (rawConfigs, staticConfigsPath) => {
         hot: true,
         port: devServerPort,
         headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers':
-            'Content-Type,Content-Length,Accept,X-Requested-With',
-          'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers":
+            "Content-Type,Content-Length,Accept,X-Requested-With",
+          "Access-Control-Allow-Methods": "PUT,POST,GET,DELETE,OPTIONS",
         },
       },
-      staticConfigs.devServer
+      rawConfigs.devServer
     ),
   };
 
@@ -60,8 +58,8 @@ module.exports = (rawConfigs, staticConfigsPath) => {
     output: {
       path: configs.distDir,
       // 资源发布的路径
-      publicPath: isDev ? undefined : `${configs.cdnPrefix || ''}`,
-      filename: `[name].[hash:10].js`
+      publicPath: isDev ? undefined : `${configs.cdnPrefix || ""}`,
+      filename: `[name].[hash:10].js`,
     },
     resolve: {
       extensions: [
@@ -71,9 +69,9 @@ module.exports = (rawConfigs, staticConfigsPath) => {
         ".tsx",
         ".coffee",
         ".json",
-        ...configs.resolve.extensions
+        ...configs.resolve.extensions,
       ],
-      alias: configs.resolve.alias
+      alias: configs.resolve.alias,
     },
     optimization: {
       minimize: isDev ? false : true,
@@ -82,9 +80,9 @@ module.exports = (rawConfigs, staticConfigsPath) => {
           cache: true,
           parallel: true,
           sourceMap: true,
-          terserOptions: { output: { comments: false } }
-        })
-      ]
+          terserOptions: { output: { comments: false } },
+        }),
+      ],
       // splitChunks: {
       //   cacheGroups: configs.shouldSplitVendorChunk
       //     ? {
@@ -104,11 +102,11 @@ module.exports = (rawConfigs, staticConfigsPath) => {
     module: {
       // 各种默认loader配置
       // 结合其他业务房配置的loader
-      rules: [].concat(require("./loaders")(env, configs), configs.loaders)
+      rules: [].concat(require("./loaders")(env, configs), configs.loaders),
     },
 
     plugins: [].concat(require("./plugins")(env, configs), configs.plugins),
 
-    devServer: configs.devServer
+    devServer: configs.devServer,
   };
 };
