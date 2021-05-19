@@ -9,7 +9,7 @@ const data: ApartmentDataOption = {
   age: "2012年建/塔楼",
   orientation: "北",
   community: "丰逸尚居",
-
+  comment: '户型太小了，不然还是挺好的',
   score: {
     style: {
       data: 50,

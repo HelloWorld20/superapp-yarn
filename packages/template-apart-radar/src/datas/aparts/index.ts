@@ -6,4 +6,5 @@ export default [
   require("./四季花园2").default,
   require("./悦涛雅苑61").default,
   require("./黄埔花园61").default,
+  require("./丰逸尚居64").default,
 ];

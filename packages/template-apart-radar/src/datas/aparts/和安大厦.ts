@@ -1,15 +1,15 @@
 const data: ApartmentDataOption = {
-  title: "和安大厦 2室2厅 64.35平米2020.11.10 成交",
-  url:
-    "https://gz.lianjia.com/ershoufang/108402041611.html?fb_expo_id=439486606480039936",
+  title: "和安大厦 精装修两房 南向 采光通风好",
+  url: "https://gz.lianjia.com/ershoufang/108401568759.html",
   blueprint:
-    "https://image1.ljcdn.com/x-se/hdic-frame/standard_8eb8c43d-4cfd-4fc6-a173-cb6f61c5417f.png.700x700.jpg",
-  size: "64.35平米",
-  averavePrize: "42782元/平米",
-  totalPrize: "276",
-  age: '2008',
-  orientation: "北",
+    "https://image1.ljcdn.com/x-se/hdic-frame/standard_ddfc86b3-48fc-4761-a507-ac477f5303a4.png.700x700.jpg",
+  size: "59.24平米",
+  averavePrize: "44734元/平米",
+  totalPrize: "265",
+  age: "2008年建/塔楼",
+  orientation: "南",
   community: "和安大厦",
+  comment: "无对口学校",
   score: {
     style: {
       data: 80,

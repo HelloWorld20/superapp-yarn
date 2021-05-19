@@ -22,12 +22,7 @@ export default ({ data, onChange }: IProps) => {
 
   return (
     <>
-      <SettingFilled
-        className={`shake-constant ${
-          !fold && "shake-chunk"
-        } shake-constant--hover sticky-btn`}
-        onClick={() => setFold(!fold)}
-      />
+      <SettingFilled className={`sticky-btn`} onClick={() => setFold(!fold)} />
       <Modal
         title="筛选"
         visible={fold}
