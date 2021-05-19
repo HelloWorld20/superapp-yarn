@@ -2,6 +2,9 @@
 
 const TAR = require("../packages/template-apart-radar/scripts/start");
 
+const server = require("../packages/server/scripts/start");
+
 module.exports = {
   "template-apart-radar": TAR,
+  server,
 };
