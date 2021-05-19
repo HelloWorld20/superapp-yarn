@@ -1,71 +1,59 @@
-const inquirer = require('inquirer');
-const shelljs = require('shelljs');
-const chalk = require('chalk');
-const askForStatic = require('./ask.static');
+const fs = require("fs");
+const inquirer = require("inquirer");
+const shelljs = require("shelljs");
+const chalk = require("chalk");
+const scripts = require("./scripts");
 
-async function getAnswer() {
+async function getProject() {
   let answer = await inquirer.prompt([
     {
-      name: 'project',
-      message: '您要运行哪个项目',
-      type: 'list',
+      name: "project",
+      message: "您要运行哪个项目",
+      type: "checkbox",
       choices: [
         {
-          name: 'template-apart-radar: 看房对比dashboard',
-          value: 'template-apart-radar'
+          name: "template-apart-radar: 看房对比dashboard",
+          value: "template-apart-radar",
+          checked: true,
         },
         {
-          name: 'server：统一server端',
-          value: 'server'
+          name: "server：统一server端",
+          value: "server",
         },
         {
-          name: 'utils：全局公共方法',
-          value: 'utils'
-        }
-      ]
-    }
-  ])
+          name: "utils：全局公共方法",
+          value: "utils",
+        },
+      ],
+    },
+  ]);
 
-  if (answer.project === 'template-apart-radar') {
-    const res = await askForStatic();
-    answer = { ...answer, ...res };
-  }
+  console.log(answer.project)
 
-  console.table(answer)
-
-  return answer;
-}
-
-function getShellStr(conf) {
-  let res = `cd packages/${conf.project} && cross-env NODE_ENV=${conf.node_env}`
-
-  if (conf.analasy) {
-    res += ` ANALASY=1 `
-  }
-
-  if (conf.node_env === 'development') {
-    res += ` webpack-dev-server --config webpack.config.js`
-  } else if (conf.node_env === 'production') {
-    res += ` webpack --config webpack.config.js`
-  }
-
-  if (conf.upload) {
-    res += ' && node ./upload.js'
-  }
-
-  return res;
+  // if (answer.length === 0) {
+  //   console.warn("请选择至少一个项目");
+  //   return "";
+  // }
+  // 没接入concurrent时，仅启动第一个项目
+  return answer.project[0];
 }
 
 async function init() {
-  const answer = await getAnswer();
+  const projects = await getProject();
 
-  const shellStr = getShellStr(answer);
+  const project = projects;
 
-  console.log(chalk.redBright('最终运行脚本：'))
-  console.log(chalk.greenBright(shellStr))
+  const script = scripts[project];
+
+  const answer = await script.getAnswer();
+
+  const shellStr = script.getShellStr(answer);
+
+
+  console.log(chalk.redBright("最终运行脚本："));
+  console.log(chalk.greenBright(shellStr));
 
   shelljs.exec(shellStr);
 }
-
 
 init();
