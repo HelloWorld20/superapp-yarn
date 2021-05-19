@@ -3,7 +3,7 @@ const data: ApartmentData = {
   prise: 42991,
   totalPrise: 300,
   zone: "黄埔区",
-  district: "黄埔区府",
+  district: "文冲",
   advantage: "房龄新、性价比高、优质学区",
   disadvatage: "配套暂时差",
   lng: 113.468216,

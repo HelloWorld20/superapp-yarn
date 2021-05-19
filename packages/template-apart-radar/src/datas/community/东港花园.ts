@@ -5,7 +5,7 @@ const data: ApartmentData = {
   zone: "黄埔区",
   district: "老黄埔:双岗",
   advantage: "房龄新、地铁上盖、距离黄埔中心近、学区好",
-  disadvatage: "周围配套太一般。啥都没有",
+  disadvatage: "周围配套太一般。啥都没有，总价略高",
   lng: 113.474358,
   lat: 23.09573,
   // selected: true,

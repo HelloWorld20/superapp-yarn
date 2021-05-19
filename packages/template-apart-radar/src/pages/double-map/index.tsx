@@ -17,7 +17,7 @@ export default () => {
   >([]);
 
   useEffect(() => {
-    const 过滤后数据 = datas.filter((data) => data.selected);
+    const 过滤后数据 = datas.filter((data) => data);
     // 生成坐标
     const cords = get地图数据(过滤后数据);
     set地图数据([...cords]);
