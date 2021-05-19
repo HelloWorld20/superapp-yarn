@@ -10,6 +10,7 @@ const data: ApartmentDataOption = {
   age: "2014",
   orientation: "南",
   community: "东港花园",
+  comment: '优点:房子质量高。缺点:噪音大、总价高、配套差',
   score: {
     style: {
       data: 80,

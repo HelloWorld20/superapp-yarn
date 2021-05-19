@@ -9,4 +9,5 @@ export default [
   require("./二期108401870785").default,
   require("./二期108401931667").default,
   require("./二期108402017112").default,
+  require("./丰逸尚居64").default,
 ];
