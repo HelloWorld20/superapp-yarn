@@ -13,7 +13,7 @@ export default ({ tableData }: IProps) => {
       key: "name",
       render: (text: string, data: Record<string, any>) => {
         return (
-          <a href={data.url} target="_blank">
+          <a href={data.url} rel="noopener" target="_blank">
             {text}
           </a>
         );
@@ -43,5 +43,5 @@ export default ({ tableData }: IProps) => {
     },
   ];
 
-  return <Table dataSource={tableData} columns={columns} />;
+  return <Table dataSource={tableData} columns={columns} pagination={false} />;
 };

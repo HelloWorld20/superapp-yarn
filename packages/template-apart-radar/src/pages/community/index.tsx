@@ -48,9 +48,10 @@ export default () => {
     set地图数据([...cords]);
 
     const tableData: any[] = get表格数据(过滤后的数据);
-    set表格数据(tableData);
+    // 库太多，太卡顿，放入下一个宏任务执行
+    setTimeout(() => set表格数据(tableData));
 
-    set雷达数据(过滤后的数据);
+    setTimeout(() => set雷达数据(过滤后的数据));
   };
 
   const get地图数据 = (datas: ApartmentData[]) => {
