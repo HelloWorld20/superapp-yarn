@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Table, Modal, Popover, Col, Row } from "antd";
+import { Table, Modal, Popover, Col, Row, Drawer } from "antd";
 import apartData from "@/datas/aparts";
 import Radar from "./radar";
 
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
-
-export default () => {
-  const [tableData, setTableData] = useState<DataType[]>([]);
-  const [modal, setModal] = useState<Record<string, any> | null>(null);
-  // const [selectedRowKeys, setSelectedRowKeys] = useState<any[]>([]);
-
+const Apartment = () => {
+  const [tableData, setTableData] = useState<ApartmentData[]>([]);
+  const [selectedRows, setSelectedRows] = useState<any[]>([]);
+  const [visible, setVisible] = useState<boolean>(false);
   useEffect(() => {
     setTableData(
       apartData.map((apart) => ({
@@ -23,6 +15,10 @@ export default () => {
       }))
     );
   }, []);
+
+  useEffect(() => {
+    setVisible(selectedRows.length > 0);
+  }, [selectedRows]);
 
   const columns = [
     {
@@ -108,9 +104,6 @@ export default () => {
         return (
           <Popover placement="leftTop" content={hoverContent} trigger="hover">
             <img
-              onClick={() => {
-                showDetail(data);
-              }}
               style={{ width: "120px", height: "100px", cursor: "pointer" }}
               src={proxyImgUrl}
               alt=""
@@ -121,46 +114,37 @@ export default () => {
     },
   ];
 
-  const showDetail = (data: Record<string, any>) => {
-    setModal(data);
+  const rowSelection = {
+    onChange: (_: any, selectedRows: ApartmentData[]) => {
+      setSelectedRows(selectedRows);
+    },
   };
 
-  // const rowSelection = {
-  //   onChange: (selectedRowKeys: React.Key[], selectedRows: DataType[]) => {
-  //     console.log(
-  //       `selectedRowKeys: ${selectedRowKeys}`,
-  //       "selectedRows: ",
-  //       selectedRows
-  //     );
-  //   },
-  // };
-
+  const onClose = () => {
+    setVisible(false);
+  };
   return (
     <div className="apartment">
-      <Table dataSource={tableData} columns={columns} pagination={false} />
-      <Modal
-        visible={modal !== null}
-        onCancel={() => setModal(null)}
-        width={1000}
+      <Table
+        dataSource={tableData}
+        rowSelection={rowSelection}
+        columns={columns}
+        pagination={false}
+      />
+      <Drawer
+        title="雷达图"
+        placement="right"
+        mask={false}
+        maskClosable={false}
+        closable={true}
+        width={"50%"}
+        onClose={onClose}
+        visible={visible}
       >
-        {modal !== null && (
-          <Row>
-            <Col span={12}>
-              <img
-                src={`http://v4.rabbitpre.com/m/proxy?host=${modal.blueprint}`}
-                style={{ width: "100%", height: "auto", textAlign: "center" }}
-                alt=""
-              />
-            </Col>
-            <Col span={12}>
-              <Radar datas={[modal]} />
-            </Col>
-            <Col>
-              <p>{modal.comment}</p>
-            </Col>
-          </Row>
-        )}
-      </Modal>
+        <Radar datas={selectedRows} />
+      </Drawer>
     </div>
   );
 };
+
+export default Apartment;

@@ -20,7 +20,7 @@ interface IProps {
   datas: any[];
 }
 
-export default ({ datas }: IProps) => {
+const ApartmentRadar = ({ datas }: IProps) => {
   const chartEl = useRef<HTMLDivElement | null>(null);
   const instance = useRef<echarts.ECharts | null>(null);
 
@@ -69,7 +69,7 @@ export default ({ datas }: IProps) => {
         },
         series: [
           {
-            name: "预算 vs 开销（Budget vs spending）",
+            name: "户型对比",
             type: "radar",
             //   areaStyle: {},
             // areaStyle: {normal: {}},
@@ -99,3 +99,5 @@ export default ({ datas }: IProps) => {
     ></div>
   );
 };
+
+export default ApartmentRadar;
