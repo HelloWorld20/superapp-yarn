@@ -9,18 +9,20 @@ const data: ApartmentDataOption = {
   age: "2000年建/塔楼",
   orientation: "北",
   community: "金碧花园第一金碧",
+  comment: '户型好、光线一般，应该南北通透，房间大',
+  storey: 5,
   score: {
     style: {
-      data: 80,
+      data: 90,
     },
     quality: {
-      data: 85,
+      data: 75,
     },
     age: {
-      data: 80,
+      data: 70,
     },
     orientation: {
-      data: 60,
+      data: 70,
     },
     light: {
       data: 70,
@@ -29,7 +31,7 @@ const data: ApartmentDataOption = {
       data: 70,
     },
     view: {
-      data: 70,
+      data: 75,
     },
     air: {
       data: 80,

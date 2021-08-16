@@ -9,31 +9,32 @@ const data: ApartmentDataOption = {
   age: "2000年建/塔楼",
   orientation: "北",
   community: "金碧花园第二金碧",
-
+  storey: 4,
+  comment: "光线不好、房间大、户型好。4楼",
   score: {
     style: {
-      data: 80,
-    },
-    quality: {
       data: 85,
     },
+    quality: {
+      data: 65,
+    },
     age: {
-      data: 80,
+      data: 70,
     },
     orientation: {
       data: 60,
     },
     light: {
-      data: 70,
+      data: 50,
     },
     noise: {
-      data: 70,
+      data: 90,
     },
     view: {
-      data: 70,
+      data: 50,
     },
     air: {
-      data: 80,
+      data: 60,
     },
   },
 };

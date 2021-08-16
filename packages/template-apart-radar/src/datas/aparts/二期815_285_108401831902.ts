@@ -9,7 +9,8 @@ const data: ApartmentDataOption = {
   age: "2000年建/塔楼",
   orientation: "西",
   community: "金碧花园第二金碧",
-
+  storey: 10,
+  comment: '税费高、西晒很严重。业务不讲价（包税288、不包税275）。视野好',
   score: {
     style: {
       data: 85,

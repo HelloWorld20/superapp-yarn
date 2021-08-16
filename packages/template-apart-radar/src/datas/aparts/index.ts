@@ -12,8 +12,8 @@ export default [
   // require("./丰逸尚居64").default,
   require("./二期815_278_108402368506").default,
   require("./二期815_285_108401831902").default,
-  require("./二期815_310_108401835181").default,
+  require("./二期815_320_108401835181").default,
   require("./二期815_310_108402419274").default,
-  require("./二期815_320_108402489963").default,
+  require("./二期815_310_108402489963").default,
   require("./一期815_310_108402438349").default,
 ];

@@ -6,12 +6,14 @@ const data: ApartmentDataOption = {
   size: "60.17平米",
   averavePrize: "51521元/平米",
   totalPrize: "310",
-  age: "2000年建/塔楼",
+  age: "2004年建/塔楼",
   orientation: "西南",
   community: "金碧花园第二金碧",
+  storey: 9,
+  comment: '（拖鞋房）没阳台、能接受的房间小，西南，单价高，业主不急卖，没地方晾衣服。通风不错',
   score: {
     style: {
-      data: 80,
+      data: 70,
     },
     quality: {
       data: 85,
@@ -20,13 +22,13 @@ const data: ApartmentDataOption = {
       data: 80,
     },
     orientation: {
-      data: 60,
+      data: 50,
     },
     light: {
-      data: 70,
+      data: 75,
     },
     noise: {
-      data: 70,
+      data: 90,
     },
     view: {
       data: 70,

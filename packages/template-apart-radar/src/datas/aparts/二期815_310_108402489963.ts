@@ -9,30 +9,32 @@ const data: ApartmentDataOption = {
   age: "2000年建/塔楼",
   orientation: "北",
   community: "金碧花园第二金碧",
+  comment: '（洗风扇房）南北通透，光线不好，有遮挡。+北向冬天可能很湿冷',
+  storey: 9,
   score: {
     style: {
-      data: 80,
+      data: 65,
     },
     quality: {
-      data: 85,
+      data: 70,
     },
     age: {
-      data: 80,
+      data: 70,
     },
     orientation: {
       data: 60,
     },
     light: {
-      data: 70,
+      data: 50,
     },
     noise: {
-      data: 70,
+      data: 90,
     },
     view: {
-      data: 70,
+      data: 55,
     },
     air: {
-      data: 80,
+      data: 85,
     },
   },
 };

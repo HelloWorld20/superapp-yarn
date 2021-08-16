@@ -18,7 +18,7 @@ declare interface ApartmentDataOption {
   /** 年份 */
   age: string;
   /** 楼层 */
-  storey?: string;
+  storey?: string | number;
   /** 朝向 */
   orientation?: string;
   /** 评论 */
