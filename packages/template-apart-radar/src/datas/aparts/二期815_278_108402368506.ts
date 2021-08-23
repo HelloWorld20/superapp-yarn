@@ -6,9 +6,11 @@ const data: ApartmentDataOption = {
   size: "56.04平米",
   averavePrize: "50857元/平米",
   totalPrize: "285",
-  age: "2000年建/塔楼",
+  age: "2004年建/塔楼",
   orientation: "东",
+  storey: 30,
   community: "金碧花园第二金碧",
+  comment: '房间小、没阳台。业主有心卖，一直降价',
   score: {
     style: {
       data: 50,
