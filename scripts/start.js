@@ -55,7 +55,7 @@ async function init() {
     }
 
   } else {
-    shellStr = await getShellstrByConfig();
+    shellStr = await getShellstr();
     fs.writeFileSync(cachePath, shellStr);
   }
 
