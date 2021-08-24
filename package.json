@@ -6,6 +6,7 @@
   ],
   "scripts": {
     "start": "node scripts/start.js",
+    "latest": "node scripts/start.js latest",
     "dev-server": "cd packages/server && npm run dev",
     "dev-static": "cd packages/template-apart-radar && npm run dev",
     "build-static": "cd packages/template-apart-radar && npm run build",

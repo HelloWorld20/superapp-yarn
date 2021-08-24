@@ -1,53 +1,63 @@
 const fs = require("fs");
+const path = require('path');
 const inquirer = require("inquirer");
 const shelljs = require("shelljs");
 const chalk = require("chalk");
 const scripts = require("./scripts");
 
-async function getProject() {
-  let answer = await inquirer.prompt([
+async function getScript() {
+  const keys = Object.keys(scripts)
+  const choices = keys.map((key, i) => {
+    const value = scripts[key];
+    return {
+      name: `${value.name}: ${value.desc}`,
+      value: value,
+      checked: i === 0
+    }
+  })
+  return inquirer.prompt([
     {
       name: "project",
       message: "您要运行哪个项目",
       type: "checkbox",
-      choices: [
-        {
-          name: "template-apart-radar: 看房对比dashboard",
-          value: "template-apart-radar",
-          checked: true,
-        },
-        {
-          name: "server：统一server端",
-          value: "server",
-        },
-        // {
-        //   name: "utils：全局公共方法",
-        //   value: "utils",
-        // },
-      ],
+      choices,
     },
-  ]);
+  ])
+}
 
-  console.log(answer.project)
+async function getShellstr() {
+  const script = await getScript();
+  // 接入concurrent之前，只读第一条命令
+  const command = script.project[0].component
 
-  // if (answer.length === 0) {
-  //   console.warn("请选择至少一个项目");
-  //   return "";
-  // }
-  // 没接入concurrent时，仅启动第一个项目
-  return answer.project[0];
+  const answer = await command.getAnswer();
+
+  return command.getShellStr(answer);
 }
 
 async function init() {
-  const projects = await getProject();
+  const isLatest = process.argv[2] === 'latest';
 
-  const project = projects;
+  const cachePath = path.resolve(__dirname, './latest_shell.sh');
 
-  const script = scripts[project];
+  let shellStr = '';
 
-  const answer = await script.getAnswer();
+  if (isLatest) {
+    try {
+      fs.accessSync(cachePath, fs.constants.F_OK);
 
-  const shellStr = script.getShellStr(answer);
+      shellStr = fs.readFileSync(cachePath, 'utf-8');
+    } catch {
+      console.log(chalk.redBright("没有找到本地缓存，重新选择项目"));
+      shellStr = await getShellstr();
+      console.log('shellStr', shellStr);
+      fs.writeFileSync(cachePath, shellStr);
+    }
+
+  } else {
+    shellStr = await getShellstrByConfig();
+    fs.writeFileSync(cachePath, shellStr);
+  }
 
 
   console.log(chalk.redBright("最终运行脚本："));
