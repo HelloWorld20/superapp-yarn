@@ -937,6 +937,17 @@
   resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
   integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
 
+"@koa/router@^10.1.1":
+  version "10.1.1"
+  resolved "http://npm.tuzhanai.com/@koa%2frouter/-/router-10.1.1.tgz#8e5a85c9b243e0bc776802c0de564561e57a5f78"
+  integrity sha1-jlqFybJD4Lx3aALA3lZFYeV6X3g=
+  dependencies:
+    debug "^4.1.1"
+    http-errors "^1.7.3"
+    koa-compose "^4.1.0"
+    methods "^1.1.2"
+    path-to-regexp "^6.1.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1129,6 +1140,13 @@
     "@types/keygrip" "*"
     "@types/koa-compose" "*"
     "@types/node" "*"
+
+"@types/koa__router@^8.0.7":
+  version "8.0.7"
+  resolved "http://npm.tuzhanai.com/@types%2fkoa__router/-/koa__router-8.0.7.tgz#663d69d5ddebff5aaca27c0594430b3ba6ea20be"
+  integrity sha1-Zj1p1d3r/1qsonwFlEMLO6bqIL4=
+  dependencies:
+    "@types/koa" "*"
 
 "@types/lodash@^4.14.144":
   version "4.14.168"
