@@ -12,10 +12,20 @@
   "license": "ISC",
   "dependencies": {
     "@koa/router": "^10.1.1",
+    "@types/boom": "^7.3.1",
     "@types/koa": "^2.13.4",
+    "@types/koa-bodyparser": "^5.0.2",
+    "@types/koa-cors": "^0.0.2",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-mongo": "^1.9.2",
     "@types/koa-router": "^7.4.4",
     "@types/koa__router": "^8.0.7",
+    "boom": "^7.3.0",
     "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-cors": "^0.0.16",
+    "koa-logger": "^3.2.1",
+    "koa-mongo": "^1.9.3",
     "koa-router": "^10.1.1"
   }
 }
