@@ -1,10 +1,10 @@
 import * as Router from "@koa/router";
-import { ServiceError, ERROR_STATUS } from "../utils/service-error";
+import RES from '../utils/service-error'
 
 const router = new Router();
 
 router.get("/error", async (ctx, next) => {
-  throw new ServiceError(ERROR_STATUS["service unavailable"], "某处业务报错");
+  throw RES.GENERAL.SERVER_ERROR;
 });
 
 router.get("/error/ctx", async (ctx, next) => {

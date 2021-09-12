@@ -1,86 +1,166 @@
-export enum ERROR_STATUS {
-  "continue" = 100,
-  "switching protocols" = 101,
-  "processing" = 102,
-  "ok" = 200,
-  "created" = 201,
-  "accepted" = 202,
-  "non-authoritative information" = 203,
-  "no content" = 204,
-  "reset content" = 205,
-  "partial content" = 206,
-  "multi-status" = 207,
-  "already reported" = 208,
-  "im used" = 226,
-  "multiple choices" = 300,
-  "moved permanently" = 301,
-  "found" = 302,
-  "see other" = 303,
-  "not modified" = 304,
-  "use proxy" = 305,
-  "temporary redirect" = 307,
-  "permanent redirect" = 308,
-  "bad request" = 400,
-  "unauthorized" = 401,
-  "payment required" = 402,
-  "forbidden" = 403,
-  "not found" = 404,
-  "method not allowed" = 405,
-  "not acceptable" = 406,
-  "proxy authentication required" = 407,
-  "request timeout" = 408,
-  "conflict" = 409,
-  "gone" = 410,
-  "length required" = 411,
-  "precondition failed" = 412,
-  "payload too large" = 413,
-  "uri too long" = 414,
-  "unsupported media type" = 415,
-  "range not satisfiable" = 416,
-  "expectation failed" = 417,
-  "I'm a teapot" = 418,
-  "unprocessable entity" = 422,
-  "locked" = 423,
-  "failed dependency" = 424,
-  "upgrade required" = 426,
-  "precondition required" = 428,
-  "too many requests" = 429,
-  "request header fields too large" = 431,
-  "internal server error" = 500,
-  "not implemented" = 501,
-  "bad gateway" = 502,
-  "service unavailable" = 503,
-  "gateway timeout" = 504,
-  "http version not supported" = 505,
-  "variant also negotiates" = 506,
-  "insufficient storage" = 507,
-  "loop detected" = 508,
-  "not extended" = 510,
-  "network authentication required" = 511,
-}
+import * as Boom from "boom";
 
-export class ServiceError extends Error {
-  code = "000000";
-  status = ERROR_STATUS["service unavailable"];
-  /**
-   * 返回包装后的错误对象
-   * @param  {ERROR_CODE} [status='500' ]   状态码
-   * @param  {string} [msg='未知错误']        状态消息
-   * @param  {string} [code='000000']        错误码，前后端自定义的错误码
-   * @return {ServiceError}
-   */
-  constructor(
-    // service = "service_code_1.default.UNKONWN",
-    status = ERROR_STATUS["service unavailable"],
-    msg = "未知错误",
-    code = "000000"
-  ) {
-    super(msg);
+/**
+ * 这里写的是应用中所有的返回值：
+ * 两种写法：
+ *
+ * 1. 正常的返回（HTTP 状态码默认 200）：
+ *  get OK () {
+ *    return {
+ *      code: '0',
+ *      msg: 'ok'
+ *    }
+ *  }
+ *
+ * 2. 错误的返回：
+ *  get ERROR () {
+ *    return new Boom('服务器错误', {
+ *      statusCode: 500,
+ *      data: {
+ *        code: '1'
+ *      }
+ *    })
+ *  }
+ */
+const ERR = {
+  GENERAL: {
+    get OK() {
+      return {
+        // code: '0',
+        msg: "ok",
+      };
+    },
 
-    this.code = code;
-    this.status = status;
-    if (msg) {
-      this.message = msg;
-    }
-  }
-}
+    get PARAM_ERROR() {
+      return Boom.badRequest("参数错误", {
+        code: "1",
+      });
+    },
+
+    get SERVER_ERROR() {
+      return Boom.badImplementation("服务器错误", {
+        code: "2",
+      });
+    },
+
+    get DB_ERROR() {
+      return Boom.serverUnavailable("数据库错误", {
+        code: "3",
+      });
+    },
+
+    get NOT_FOUND() {
+      return Boom.notFound("未找到页面");
+    },
+  },
+
+  USER: {
+    get SHARED_ALREADY() {
+      return {
+        code: "0001",
+        msg: "已经分享过了，无法添加生命",
+      };
+    },
+
+    get NOT_FOUND() {
+      return Boom.notFound("找不到用户", {
+        code: "0002",
+      });
+    },
+
+    get UNAUTHORIZED() {
+      // Boom.unauthorized 不能达到应用的返回值需求，需要手动创建
+      return new Boom("未登录", {
+        statusCode: 401,
+        data: {
+          code: "0003",
+        },
+      });
+    },
+
+    get FORBIDDEN() {
+      return new Boom("无权限", {
+        statusCode: 403,
+        data: {
+          code: "0004",
+        },
+      });
+    },
+
+    get INVALID_PWD() {
+      return Boom.badRequest("密码错误", {
+        code: "0005",
+      });
+    },
+  },
+
+  INVITATION: {
+    get NOT_FOUND() {
+      return Boom.notFound("邀请码无效", {
+        code: "0100",
+      });
+    },
+
+    get USED() {
+      return Boom.conflict("用户已使用这一邀请码", {
+        code: "0101",
+      });
+    },
+
+    get TRY_USING_OWN_CODE() {
+      return Boom.conflict("不能使用自己的邀请码", {
+        code: "0102",
+      });
+    },
+
+    get NOT_GENERATED() {
+      return Boom.badImplementation("邀请码还没生成", {
+        code: "0103",
+      });
+    },
+  },
+  UPLOAD: {
+    get FAILED() {
+      return Boom.serverUnavailable("文件上传服务出错", {
+        code: "0201",
+      });
+    },
+  },
+  BASIC: {
+    get NO_USER() {
+      return Boom.notFound("找不到用户", {
+        code: "-99",
+      });
+    },
+    get NOT_FOUND() {
+      return Boom.notFound("无数据", {
+        code: "-1",
+      });
+    },
+
+    get NO_LIFE() {
+      return Boom.notAcceptable("生命值不足", {
+        code: "-1",
+      });
+    },
+    get NO_REDPACK() {
+      return Boom.notAcceptable("红包不足", {
+        code: "0300",
+      });
+    },
+  },
+  GAME: {
+    get GAME_END() {
+      return Boom.notAcceptable("当前这轮游戏已结束", {
+        code: "-1",
+      });
+    },
+    get ALLREADY_SEND() {
+      return Boom.notAcceptable("已获取过题目", {
+        code: "-2",
+      });
+    },
+  },
+};
+
+export default ERR;

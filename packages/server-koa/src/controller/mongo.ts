@@ -1,12 +1,29 @@
 import * as Router from "@koa/router";
-import { ServiceError, ERROR_STATUS } from "../utils/service-error";
-import * as Boom from "boom";
+// import RES from '../utils/service-error'
 
 const router = new Router();
 
 router.get("/get", async (ctx, next) => {
-  // throw new ServiceError(ERROR_STATUS["service unavailable"], "某处业务报错");
-  throw Boom.internal("某处业务爆粗", { code: "0" });
+  const collection = ctx.mongo.db("admin").collection("temps");
+  const condition = {
+    age: 20,
+  };
+
+  try {
+    const info = await collection.find(condition).toArray();
+    console.log("/////////////////////////////////");
+    console.log(info);
+    ctx.status = 200;
+    ctx.body = { data: info };
+  } catch (error) {
+    console.log(error);
+
+    throw new Error(error as any);
+  }
+
+  await next();
+
+  // throw RES.GENERAL.SERVER_ERROR;
 });
 
 router.get("/set", async (ctx, next) => {

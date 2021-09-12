@@ -1,5 +1,7 @@
-import test from './controller/test';
+import test from "./controller/test";
+import mongo from "./controller/mongo";
 
 export default {
-  '/abc': test
-}
+  "/abc": test,
+  "/mongo": mongo,
+};

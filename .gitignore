@@ -11,3 +11,4 @@ lerna-debug.log
 package.json.lerna_backup
 yarn-error.log
 lib
+latest_shell.sh

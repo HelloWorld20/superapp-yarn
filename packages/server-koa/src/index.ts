@@ -1,32 +1,45 @@
 import * as Koa from "koa";
 import router from "./router";
-// const logger = require('koa-logger');
-// const bodyParser = require('koa-bodyparser');
-// const mongo = require('koa-mongo');
-// const route = require('./route');
-// const config = require('config')
-// const cors = require('koa-cors')
-import * as cors from 'koa-cors';
-import * as mongo from 'koa-mongo'
-import * as bodyParser from 'koa-bodyparser'
-import * as logger from 'koa-logger'
+
+import * as cors from "koa-cors";
+import * as mongo from "koa-mongo";
+import * as bodyParser from "koa-bodyparser";
+import * as logger from "koa-logger";
 import * as Router from "@koa/router";
-import errorMiddleware from './middleware/error';
-import notFoundMiddleware from './middleware/404'
+
+import errorMiddleware from "./middleware/error";
+import notFoundMiddleware from "./middleware/404";
 
 const PORT = 4000;
 
 const app = new Koa();
 
 const rootRouter = new Router({
-  prefix: '/api/demo'
+  prefix: "/api/demo",
 });
 
 app.use(logger());
-app.use(bodyParser({formLimit: "1mb"}));
-app.use(mongo({uri: ''}));
+app.use(bodyParser({ formLimit: "1mb" }));
 
-app.use(cors({origin: '*'}))
+/////////mongodb
+const mongoConf = {
+  host: "127.0.0.1",
+  port: 27017,
+  password: "abcd",
+};
+// mongoose.connect('mongodb://用户名:密码@127.0.0.1:27017/数据库名称')
+const DB_URL = (function () {
+  if (mongoConf.user && mongoConf.password) {
+    return `mongodb://${mongoConf.user}:${mongoConf.password}@${mongoConf.host}:${mongoConf.port}/admin`;
+  } else {
+    return `mongodb://${mongoConf.host}:${mongoConf.port}/admin`;
+  }
+})();
+console.log("DB_URL", DB_URL);
+
+app.use(mongo({ uri: DB_URL }));
+
+app.use(cors({ origin: "*" }));
 
 ///////// 错误处理中间件
 app.use(errorMiddleware);
