@@ -27,7 +27,19 @@ router.get("/get", async (ctx, next) => {
 });
 
 router.get("/set", async (ctx, next) => {
-  ctx.throw(400, "name require");
+  const collection = ctx.mongo.db("admin").collection("temps");
+  const condition = {
+    id: "123",
+  };
+
+  collection.update(condition, {
+    extra: Math.random(),
+  });
+  ctx.status = 200;
+  ctx.body = { data: "ok" };
+  await next();
+
+  // ctx.throw(400, "name require");
 });
 
 export default router;
