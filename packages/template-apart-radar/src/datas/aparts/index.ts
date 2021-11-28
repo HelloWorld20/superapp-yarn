@@ -19,4 +19,6 @@ export default [
   // require("./南洲822_268").default,
   require("./晓港湾828_315_108402501613").default,
   require("./一期828_290_108402578430").default,
+  require("./二期1121_318_108401687894").default,
+  require("./二期1121_298_108402779882").default,
 ];
