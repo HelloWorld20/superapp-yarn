@@ -13,7 +13,7 @@ const data: ApartmentDataOption = {
   comment: "户型相当方正，朝花园，安静。缺点小卧窗户对着别人家阳台。主卧与阳台纯北向。裕丰挂牌295，链家挂牌298",
   score: {
     style: {
-      data: 85,
+      data: 90,
     },
     quality: {
       data: 75,
@@ -22,19 +22,19 @@ const data: ApartmentDataOption = {
       data: 70,
     },
     orientation: {
-      data: 80,
+      data: 55,
     },
     light: {
-      data: 60,
+      data: 65,
     },
     noise: {
-      data: 70,
+      data: 95,
     },
     view: {
-      data: 70,
+      data: 65,
     },
     air: {
-      data: 90,
+      data: 60,
     },
   },
 };
