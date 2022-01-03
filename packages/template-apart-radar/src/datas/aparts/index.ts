@@ -10,6 +10,8 @@ export default [
   // require("./二期108401931667").default,
   // require("./二期108402017112").default,
   // require("./丰逸尚居64").default,
+  require("./荔港南湾0102_328_108402149473").default,
+  require("./荔港南湾0102_303_108402572528").default,
   require("./二期815_278_108402368506").default,
   // require("./二期815_285_108401831902").default,
   // require("./二期815_320_108401835181").default,
