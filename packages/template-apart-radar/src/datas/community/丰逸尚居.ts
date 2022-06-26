@@ -1,11 +1,11 @@
 const data: ApartmentData = {
   name: "丰逸尚居",
-  prise: 42991,
+  prise: 49134,
   totalPrise: 300,
   zone: "黄埔区",
   district: "文冲",
-  advantage: "房龄新、性价比高、优质学区",
-  disadvatage: "配套暂时差",
+  advantage: "房龄新、性价比高、优质学区、户型非常好",
+  disadvatage: "物理距离远、离地铁有距离。配套暂时差",
   lng: 113.468216,
   lat: 23.098854,
   url: 'https://gz.lianjia.com/xiaoqu/2111103319238/',
@@ -16,7 +16,7 @@ const data: ApartmentData = {
       desc: "",
     },
     enviranment: {
-      data: 65,
+      data: 50,
       desc: "",
     },
     education: {
@@ -24,7 +24,7 @@ const data: ApartmentData = {
       desc: "",
     },
     quality: {
-      data: 75,
+      data: 80,
       desc: "",
     },
     age: {
@@ -32,11 +32,11 @@ const data: ApartmentData = {
       desc: "12年",
     },
     style: {
-      data: 65,
+      data: 95,
       desc: "",
     },
     appreciation: {
-      data: 85,
+      data: 90,
       desc: "",
     },
     equipment: {

@@ -1,4 +1,5 @@
 export default [
+  require('./荔港南湾').default,
   require("./金碧一期").default,
   require("./金碧二期").default,
   require("./金碧三期").default,

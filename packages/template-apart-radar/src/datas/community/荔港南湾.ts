@@ -1,5 +1,5 @@
 const data: ApartmentData = {
-  name: "第一金碧",
+  name: "荔港南湾",
   prise: 43984,
   totalPrise: 300,
   zone: "荔湾区",
@@ -12,35 +12,35 @@ const data: ApartmentData = {
   url: 'https://gz.lianjia.com/xiaoqu/2110343238336996/',
   score: {
     transport: {
-      data: 85,
-      desc: "",
-    },
-    enviranment: {
-      data: 75,
-      desc: "",
-    },
-    education: {
       data: 70,
       desc: "",
     },
-    quality: {
-      data: 65,
-      desc: "",
-    },
-    age: {
-      data: 60,
-      desc: "",
-    },
-    style: {
-      data: 65,
-      desc: "",
-    },
-    appreciation: {
+    enviranment: {
       data: 80,
       desc: "",
     },
-    equipment: {
+    education: {
+      data: 100,
+      desc: "",
+    },
+    quality: {
+      data: 85,
+      desc: "",
+    },
+    age: {
       data: 75,
+      desc: "",
+    },
+    style: {
+      data: 90,
+      desc: "",
+    },
+    appreciation: {
+      data: 75,
+      desc: "",
+    },
+    equipment: {
+      data: 85,
       desc: "",
     },
     prise: {
