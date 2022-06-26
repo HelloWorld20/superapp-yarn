@@ -13,4 +13,5 @@ export default [
   require("./丰逸尚居").default,
   require("./信达大厦").default,
   require("./四季花园").default,
+  require("./星樾山畔").default,
 ];
